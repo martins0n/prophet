@@ -14,6 +14,7 @@ from pkg_resources import (
     require,
 )
 from setuptools import setup, find_packages
+from setuptools import Extension
 from setuptools.command.build_py import build_py
 from setuptools.command.develop import develop
 from setuptools.command.test import test as test_command
@@ -141,6 +142,12 @@ setup(
         'test': TestCommand,
     },
     test_suite='prophet.tests',
+    ext_modules=[
+        Extension(
+            name='your.external.module',
+            sources=[]
+        )
+    ],
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
