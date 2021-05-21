@@ -2,6 +2,10 @@ name: Build Wheel
 
 on: [push, pull_request]
 
+defaults:
+  run:
+    working-directory: ./pyhton
+
 jobs:
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
@@ -11,8 +15,8 @@ jobs:
         os: [ubuntu-20.04, windows-2019, macos-10.15]
 
     steps:
+      - run: ls
       - uses: actions/checkout@v2
-
       - name: Build wheels
         uses: joerick/cibuildwheel@v1.11.0
         # to supply options, put them in 'env', like:
