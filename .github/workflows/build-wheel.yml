@@ -20,6 +20,7 @@ jobs:
       - name: Build wheels
         run: |
           cd ./python
+          pip install -r requirements.txt
           python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD: cp38-*
